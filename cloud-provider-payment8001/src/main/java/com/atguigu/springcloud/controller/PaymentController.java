@@ -31,9 +31,9 @@ public class PaymentController {
     }
 
     @GetMapping (value = "/payment/get/{id}")
-    public CommonResult getPaymentById(@PathVariable("id") Long id){
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
-        log.info("result: " + payment);
+        log.info("result: " + payment+"checkcheck");
 
         if (payment != null){
             return new CommonResult(200, "successful for find", payment);
