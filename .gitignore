@@ -11,3 +11,4 @@ target/
 .project
 .idea/workspace.xml
 cloud-provider-payment8001/target/classes/com/atguigu/springcloud/controller/PaymentController.class
+.idea/workspace.xml
