@@ -18,11 +18,15 @@ eureka:
     #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
     fetchRegistry: true
     service-url:
-#      defaultZone: http://localhost:7001/eureka
-      defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka
+      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka
   instance:
     instance-id: payment8001
     prefer-ip-address: true
+    #Eureka客户端向服务端发送心跳的时间间隔，unit为second
+    lease-renewal-interval-in-seconds: 1
+    #Eureka服务端在受到最后一次心跳后等待时间上限，unit为second，超时则剔除服务
+    lease-expiration-duration-in-seconds: 2
 
 
 mybatis:
