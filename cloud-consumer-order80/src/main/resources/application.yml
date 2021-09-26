@@ -15,3 +15,6 @@ eureka:
     service-url:
 #      defaultZone: http://localhost:7001/eureka
       defaultZone: http://eureka7002.com:7002/eureka,http://eureka7001.com:7001/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: consumer80
