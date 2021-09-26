@@ -25,7 +25,7 @@ public class PaymentController {
         log.info("insert result: " + result);
 
         if (result > 0){
-            return new CommonResult(200, "successful for insert & serverPort: " + serverPort,result);
+            return new CommonResult(200, "successful for insert & serverPort: "+ serverPort,result);
         }else{
             return new CommonResult(444,"unsuccessful for insert",null);
         }
