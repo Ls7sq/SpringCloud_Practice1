@@ -14,17 +14,17 @@ public class PaymentService {
     }
 
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeoutHandler", commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value = "3000")
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value = "5000")
     })
     public String paymentInfo_Timeout(Integer id){
 
-        int age = 10/0;
-        int timeNumber = 5;
-//        try{
-//            TimeUnit.SECONDS.sleep(timeNumber);
-//        }catch (InterruptedException e){
-//            e.printStackTrace();
-//        }
+//        int age = 10/0;
+        int timeNumber = 3000;
+        try{
+            TimeUnit.MILLISECONDS.sleep(timeNumber);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
         return "Thread Pool: " + Thread.currentThread().getName()
                 + "\t" +" paymentInfo_Timeout, id: " + id + "\t"
                 + "time consuming: " + timeNumber;
@@ -33,6 +33,6 @@ public class PaymentService {
     public String paymentInfo_TimeoutHandler(Integer id){
         return "Thread Pool: " + Thread.currentThread().getName()
                 + "\t" +" paymentInfo_TimeoutHandler, id: " + id + "\t"
-                + "Sorry Timeout or operation abnormal";
+                + "Sorry 8001 Timeout or operation abnormal";
     }
 }
