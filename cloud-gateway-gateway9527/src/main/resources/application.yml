@@ -15,13 +15,21 @@ spring:
           uri: lb://cloud-payment-service
           predicates:
             - Path=/payment/get/**          #断言，路径相匹配的进行路由
+            - After=2021-09-29T15:02:02.230+08:00[Asia/Singapore]
 
         - id: payment_routh2
 #          uri: http://localhost:8001
           uri: lb://cloud-payment-service
           predicates:
             - Path=/payment/lb/**
-
+            - After=2021-09-29T13:02:02.230+08:00[Asia/Singapore]
+#            - Before=2021-09-29T16:02:02.230+08:00[Asia/Singapore]
+#            - Between=2021-09-29T15:02:02.230+08:00[Asia/Singapore],2021-09-29T15:10:02.230+08:00[Asia/Singapore]
+#            - Cookie=username,luoshiqi
+#            - Header=X-Request-Id, \d+ #请求头要有X-Request-Id属性并且值为整数的正则表达式
+#            - Host=**.atguigu.com
+#            - Method=GET
+            - Query=username, \d+ #要有parameter为username并且要整数
 eureka:
   instance:
     hostname: cloud-gateway-service
