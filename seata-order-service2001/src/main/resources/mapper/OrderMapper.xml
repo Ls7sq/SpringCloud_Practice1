@@ -12,7 +12,6 @@
         <result column="status" property="status" jdbcType="INTEGER"/>
     </resultMap>
 
-
     <insert id="create">
         insert into t_order(id, user_id, product_id, count, money, status)
         values(null, #{userId}, #{productId}, #{count}, #{money}, 0);
